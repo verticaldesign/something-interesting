@@ -1,23 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { fetchFromGiphy } from "../../actions/gifs";
+import { connect } from "react-redux";
 
-const Giphy = props => {
-  return (
-    <section className="giphy">
-      <ul className="giphy-list">{renderList(props.giphyItems)}</ul>
-    </section>
-  );
-};
+export class Giphy extends React.Component {
+  componentDidMount() {
+    console.log({ props: this.props });
+    this.props.fetchFromGiphy("dog");
+  }
+  render() {
+    return (
+      <section className="giphy">
+        <ul className="giphy-list">{renderList(this.props.giphyItems)}</ul>
+      </section>
+    );
+  }
+}
 
 function renderList(gifs) {
   return gifs.map(gif => <GiphyItem key={gif.id} />);
 }
+
 Giphy.defaultProps = {
   giphyItems: []
 };
 
-export default Giphy;
-
 const GiphyItem = () => {
   return <li />;
 };
+export default connect(
+  undefined,
+  { fetchFromGiphy }
+)(Giphy);

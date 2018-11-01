@@ -1,12 +1,14 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { expect } from "code";
-import Giphy from "./Giphy";
+import { Giphy } from "./Giphy";
 import Chance from "chance";
+import sinon from "sinon";
 
 describe("Given Giphy", () => {
   function requiredProps(overrides = {}) {
     return {
+      fetchFromGiphy: sinon.spy(),
       ...overrides
     };
   }
@@ -25,7 +27,10 @@ describe("Given Giphy", () => {
     const chance = new Chance();
     const gifs = [{ id: chance.string() }, { id: chance.string() }];
     it("should render that many GifItems", () => {
-      const component = renderComponent({ giphyItems: gifs });
+      const component = renderComponent({
+        fetchFromGiphy: sinon.spy(),
+        giphyItems: gifs
+      });
       expect(component.find("GiphyItem").length).to.equal(gifs.length);
     });
   });

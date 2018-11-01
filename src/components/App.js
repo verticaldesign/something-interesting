@@ -1,7 +1,7 @@
 import React from "react";
 import { Router } from "@reach/router";
 import NavHeader from "./common/NavHeader/NavHeader";
-import Giphy from "./Giphy/Giphy";
+import { Giphy } from "./Giphy/Giphy";
 
 const App = () => {
   return (
