@@ -8,7 +8,7 @@ import sinon from "sinon";
 describe("Given GitRepos", () => {
   function requiredProps(overrides = {}) {
     return {
-      fetchFromGithub: sinon.spy(),
+      fetchFromGitHub: sinon.spy(),
       ...overrides
     };
   }
@@ -23,15 +23,16 @@ describe("Given GitRepos", () => {
     const component = renderComponent();
     expect(component.find("ul.repo-list").length).to.be.equal(1);
   });
-  // describe("When there are 'giphyItems' props ", () => {
-  //   const chance = new Chance();
-  //   const gifs = [{ id: chance.string() }, { id: chance.string() }];
-  //   it("should render that many GifItems", () => {
-  //     const component = renderComponent({
-  //       fetchFromGithub: sinon.spy(),
-  //       giphyItems: gifs
-  //     });
-  //     expect(component.find("GiphyItem").length).to.equal(gifs.length);
-  //   });
-  // });
+  describe("When there are 'RepoItem' props ", () => {
+    const chance = new Chance();
+    const repos = [{ id: chance.string() }, { id: chance.string() }];
+    it("should render that many RepoItem", () => {
+      const component = renderComponent({
+        fetchFromGitHub: sinon.spy(),
+        repoItems: repos
+      });
+      console.log(component.debug());
+      expect(component.find("RepoItem").length).to.equal(repos.length);
+    });
+  });
 });

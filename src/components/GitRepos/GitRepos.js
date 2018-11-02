@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 export class GitRepos extends React.Component {
   componentDidMount() {
-    //this.props.fetchFromGitHub("dog");
+    this.props.fetchFromGitHub("verticalDesign");
   }
   render() {
     return (
@@ -17,17 +17,23 @@ export class GitRepos extends React.Component {
 }
 
 function renderList(repos) {
-  return repos.map(repo => <RepoItem key={repo.id} />);
+  return repos.map(repo => <RepoItem key={repo.id} repo={repo} />);
 }
+
+const RepoItem = ({ repo }) => {
+  return <li>{repo.name}</li>;
+};
 
 GitRepos.defaultProps = {
   repoItems: []
 };
+function mapStateToProps(state) {
+  return {
+    repoItems: state.repos
+  };
+}
 
-const RepoItem = () => {
-  return <li />;
-};
 export default connect(
-  undefined,
+  mapStateToProps,
   { fetchFromGitHub }
 )(GitRepos);

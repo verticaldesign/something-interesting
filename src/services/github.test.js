@@ -23,7 +23,7 @@ describe("Given the fetchRepos service", () => {
       sinon.assert.calledWithExactly(
         fetchStub,
         `${process.env.REACT_APP_GITHUB_URL}${searchTerm}/repos?access_token=${
-          process.env.REACT_APP_GITHUB_URL
+          process.env.REACT_APP_GITHUB_API
         }`
       );
     });

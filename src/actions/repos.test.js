@@ -21,8 +21,8 @@ describe("given repoActions", () => {
 
   it("should dispatch the action", () => {
     const store = mockStore([]);
-    const mockVal = [{}];
-    fetchRepoStub.resolves({ data: mockVal });
+    const mockVal = [{}, {}];
+    fetchRepoStub.resolves(mockVal);
     return store.dispatch(repoActions.fetchFromGitHub()).then(() => {
       const action = store.getActions()[0];
       expect(action).to.equal({ type: actions.REPOS_FETCH, repos: mockVal });
