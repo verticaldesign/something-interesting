@@ -1,9 +1,8 @@
 import sinon from "sinon";
-//import { expect } from "code";
-import { fetchGifs } from "./giphy";
+import { fetchRepos } from "./github";
 import Chance from "chance";
 
-describe("Given the fetchGif service", () => {
+describe("Given the fetchRepos service", () => {
   let fetchStub;
 
   beforeEach(() => {
@@ -19,13 +18,13 @@ describe("Given the fetchGif service", () => {
     const chance = new Chance();
     const searchTerm = chance.string;
 
-    fetchGifs(searchTerm).then(() => {
+    fetchRepos(searchTerm).then(() => {
       sinon.assert.calledOnce(fetchStub);
       sinon.assert.calledWithExactly(
         fetchStub,
-        `${process.env.REACT_APP_GIPHY_URL}?api_key=${
-          process.env.REACT_APP_GIPHY_API_KEY
-        }&q=${searchTerm}`
+        `${process.env.REACT_APP_GITHUB_URL}${searchTerm}/repos?access_token=${
+          process.env.REACT_APP_GITHUB_URL
+        }`
       );
     });
   });
