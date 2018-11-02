@@ -17,17 +17,27 @@ export class Giphy extends React.Component {
 }
 
 function renderList(gifs) {
-  return gifs.map(gif => <GiphyItem key={gif.id} />);
+  return gifs.map(gif => <GiphyItem key={gif.id} gif={gif} />);
 }
+
+const GiphyItem = ({ gif }) => {
+  return (
+    <li>
+      <img src={gif.images.original.url} alt="gif of dog" />
+    </li>
+  );
+};
 
 Giphy.defaultProps = {
   giphyItems: []
 };
 
-const GiphyItem = () => {
-  return <li />;
-};
+function mapStateToProps(state) {
+  return {
+    giphyItems: state.gifs
+  };
+}
 export default connect(
-  undefined,
+  mapStateToProps,
   { fetchFromGiphy }
 )(Giphy);
