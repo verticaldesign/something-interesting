@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 export class Giphy extends React.Component {
   componentDidMount() {
-    console.log({ props: this.props });
     this.props.fetchFromGiphy("dog");
   }
   render() {
