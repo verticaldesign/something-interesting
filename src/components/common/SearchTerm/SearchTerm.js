@@ -6,7 +6,6 @@ class SearchTerm extends Component {
     searchTerm: this.props.defaultText || ""
   };
   handleChange = e => {
-    console.log(this.state);
     this.setState({ searchTerm: e.target.value });
   };
   handleSubmit = e => {

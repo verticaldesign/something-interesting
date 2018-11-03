@@ -1,7 +1,7 @@
 import types from "../actions/actions-list";
 
 function fetchGifs(state, action) {
-  return [...action.gifs];
+  return [...state, ...action.gifs];
 }
 
 export default function(state = [], action) {

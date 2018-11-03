@@ -1,31 +1,41 @@
-.giphy-list {
-  list-style: none;
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  position: relative;
+.giphy {
+  .giphy-list {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 1em 0;
+    padding: 0;
 
-  .gif-image {
-    transition: 0.35s;
-    width: 200px;
-    height: 200px;
-  }
-  li {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    margin: 1px;
-    transition: 0.5s;
-    &:hover {
-      overflow: visible;
-      z-index: 999;
-      .gif-image {
-        width: 400px;
-        height: 400px;
-        z-index: 99999;
-        position: absolute;
-        left: 200px;
+    .gif-image {
+      transition: 0.35s;
+      width: 200px;
+      height: 200px;
+    }
+    li {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      margin: 1px;
+      transition: 0.5s;
+      &:hover {
+        overflow: visible;
+        z-index: 999;
+        .gif-image {
+          width: 400px;
+          height: 400px;
+          z-index: 99999;
+          position: absolute;
+          left: 200px;
+        }
       }
     }
+  }
+  .load-more,
+  .no-result {
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
   }
 }

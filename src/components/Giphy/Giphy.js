@@ -3,20 +3,55 @@ import React from "react";
 import { fetchFromGiphy } from "../../actions/gifs";
 import { connect } from "react-redux";
 import SearchTerm from "../common/SearchTerm/SearchTerm";
+//import InfiniteScroll from "react-infinite-scroller";
 import "./giphy-styles.scss";
 
 export class Giphy extends React.Component {
   // componentDidMount() {
   //   this.props.fetchFromGiphy("dog");
   // }
+  state = {
+    offset: 33,
+    searchTerm: ""
+  };
   handleSubmit = term => {
-    this.props.fetchFromGiphy(term);
+    this.props.fetchFromGiphy(term, this.state.offset);
+    this.setState({
+      searchTerm: term,
+      offset: this.state.offset + 25
+    });
   };
   render() {
     return (
       <section className="giphy">
         <SearchTerm handleSubmit={this.handleSubmit} />
+
+        {/* <InfiniteScroll
+          pageStart={0}
+          loadMore={
+            () => {
+              console.log("runs");
+            }
+            //   this.props.fetchFromGiphy(
+            //   this.state.term,
+            //   this.state.offset
+            // )
+          }
+          hasMore={true || false}
+          useWindow={false}
+          loader={
+            <div className="loader" key={0}>
+              Loading ...
+            </div>
+          }
+        > */}
         <ul className="giphy-list">{renderList(this.props.giphyItems)}</ul>
+        <div className="load-more">
+          <button onClick={() => this.handleSubmit(this.state.searchTerm)}>
+            Load More
+          </button>
+        </div>
+        {/* </InfiniteScroll> */}
       </section>
     );
   }

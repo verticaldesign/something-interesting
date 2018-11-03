@@ -40,7 +40,13 @@ const RepoItem = ({ repo }) => {
   );
 };
 function isAFork(repo) {
-  return repo.fork ? <span>💠</span> : "";
+  return repo.fork ? (
+    <span role="img" aria-label="diamond">
+      💠
+    </span>
+  ) : (
+    ""
+  );
 }
 GitRepos.defaultProps = {
   repoItems: []

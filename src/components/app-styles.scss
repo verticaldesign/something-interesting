@@ -7,7 +7,7 @@ body {
 }
 main {
   margin: 0 auto;
-  width: 40em;
+  width: 38em;
   background-color: #eee;
   padding: 2em 2em;
 }
@@ -20,20 +20,18 @@ a {
   }
 }
 
-.search-form {
-  input {
-    margin-right: 3px;
-    border-radius: 3px;
-    padding: 0.25em 0.5em;
-    font-size: 16px;
-    border: 1px solid #ccc;
-  }
-  button {
-    font-size: 16px;
-    padding: 0.25em 0.5em;
-    border-radius: 5px;
-    background-color: $primaryColor;
-    border: 1px solid darken($primaryColor, 10%);
-    color: darken(mix(complement($primaryColor), $primaryColor), 40%);
-  }
+input {
+  margin-right: 3px;
+  border-radius: 3px;
+  padding: 0.25em 0.5em;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+button {
+  font-size: 16px;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+  background-color: $primaryColor;
+  border: 1px solid darken($primaryColor, 10%);
+  color: darken(mix(complement($primaryColor), $primaryColor), 40%);
 }
