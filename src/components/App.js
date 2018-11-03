@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import NavHeader from "./common/NavHeader/NavHeader";
 import Giphy from "./Giphy/Giphy";
 import GitRepos from "./GitRepos/GitRepos";
+import './app-styles.scss'
 
 const App = () => {
   return (

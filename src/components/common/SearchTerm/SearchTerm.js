@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 class SearchTerm extends Component {
   state = {
-    searchTerm: ""
+    searchTerm: this.props.defaultText || ""
   };
   handleChange = e => {
     console.log(this.state);
@@ -16,10 +16,10 @@ class SearchTerm extends Component {
 
   render() {
     return (
-      <form>
+      <form className="search-form">
         <input
           type="text"
-          value={this.state.inputNumber}
+          value={this.state.searchTerm}
           onChange={this.handleChange}
         />
         <button onClick={this.handleSubmit}>Search</button>
@@ -27,8 +27,12 @@ class SearchTerm extends Component {
     );
   }
 }
+SearchTerm.defaultProps = {
+  defaultText: ""
+};
 SearchTerm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  defaultText: PropTypes.string
 };
 
 export default SearchTerm;

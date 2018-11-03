@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import "./nav-styles.css";
+import "./nav-styles.scss";
 
 const NavHeader = () => {
   return (

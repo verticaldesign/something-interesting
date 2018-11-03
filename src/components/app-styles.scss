@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900");
+@import "./app-variables.scss";
+body {
+  margin: 0;
+  background-color: $primaryColor;
+  font-family: "Roboto", sans-serif;
+}
+main {
+  margin: 0 auto;
+  width: 40em;
+  background-color: #eee;
+  padding: 2em 2em;
+}
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 900;
+  &:hover {
+    color: #3b7170;
+  }
+}
+
+.search-form {
+  input {
+    margin-right: 3px;
+    border-radius: 3px;
+    padding: 0.25em 0.5em;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+  button {
+    font-size: 16px;
+    padding: 0.25em 0.5em;
+    border-radius: 5px;
+    background-color: $primaryColor;
+    border: 1px solid darken($primaryColor, 10%);
+    color: darken(mix(complement($primaryColor), $primaryColor), 40%);
+  }
+}

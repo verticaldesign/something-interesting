@@ -2,14 +2,20 @@ import React from "react";
 //import PropTypes from "prop-types";
 import { fetchFromGitHub } from "../../actions/repos";
 import { connect } from "react-redux";
+import SearchTerm from "../common/SearchTerm/SearchTerm";
+import "./git-repos.scss";
 
 export class GitRepos extends React.Component {
-  componentDidMount() {
-    this.props.fetchFromGitHub("verticalDesign");
-  }
+  handleSubmit = term => {
+    this.props.fetchFromGitHub(term);
+  };
   render() {
     return (
       <section className="git-repos">
+        <SearchTerm
+          handleSubmit={this.handleSubmit}
+          defaultText="verticalDesign"
+        />
         <ul className="repo-list">{renderList(this.props.repoItems)}</ul>
       </section>
     );
@@ -21,9 +27,21 @@ function renderList(repos) {
 }
 
 const RepoItem = ({ repo }) => {
-  return <li>{repo.name}</li>;
+  return (
+    <li className="git-repo">
+      <h3>{repo.name}</h3>
+      <div>
+        {isAFork(repo)}
+        <a href={repo.url} className="url-link">
+          {repo.url}
+        </a>
+      </div>{" "}
+    </li>
+  );
 };
-
+function isAFork(repo) {
+  return repo.fork ? <span>💠</span> : "";
+}
 GitRepos.defaultProps = {
   repoItems: []
 };

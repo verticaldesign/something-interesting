@@ -1,0 +1,31 @@
+.giphy-list {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+
+  .gif-image {
+    transition: 0.35s;
+    width: 200px;
+    height: 200px;
+  }
+  li {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    margin: 1px;
+    transition: 0.5s;
+    &:hover {
+      overflow: visible;
+      z-index: 999;
+      .gif-image {
+        width: 400px;
+        height: 400px;
+        z-index: 99999;
+        position: absolute;
+        left: 200px;
+      }
+    }
+  }
+}
