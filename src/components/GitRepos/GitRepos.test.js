@@ -31,7 +31,6 @@ describe("Given GitRepos", () => {
         fetchFromGitHub: sinon.spy(),
         repoItems: repos
       });
-      console.log(component.debug());
       expect(component.find("RepoItem").length).to.equal(repos.length);
     });
   });

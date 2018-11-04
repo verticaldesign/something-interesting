@@ -1,5 +1,5 @@
-import * as types from "./actions-list";
+import types from "./actions-list";
 
-export function updateSearchTerm() {
+export const updateSearchTerm = () => {
   return { type: types.SEARCH_TERM_UPDATE };
-}
+};

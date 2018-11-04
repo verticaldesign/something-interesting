@@ -27,7 +27,8 @@ class SearchTerm extends Component {
   }
 }
 SearchTerm.defaultProps = {
-  defaultText: ""
+  defaultText: "",
+  handleSubmit: () => {}
 };
 SearchTerm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
