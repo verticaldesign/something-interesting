@@ -28,15 +28,15 @@
           z-index: 99999;
           position: absolute;
           left: 200px;
-          &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            left: 0;
-            width: 100%;
-            background-color: #0e0e0ea8;
-            height: 402px;
-          }
+        }
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          width: 100%;
+          background-color: #0e0e0ea8;
+          height: 402px;
         }
       }
     }
