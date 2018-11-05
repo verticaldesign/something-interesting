@@ -10,7 +10,8 @@ class SearchTerm extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    this.props.handleSubmit(this.state.searchTerm);
+    //this.props.handleSubmit(this.state.searchTerm);
+    this.props.children(this.state.searchTerm);
   };
 
   render() {
@@ -27,11 +28,9 @@ class SearchTerm extends Component {
   }
 }
 SearchTerm.defaultProps = {
-  defaultText: "",
-  handleSubmit: () => {}
+  defaultText: ""
 };
 SearchTerm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
   defaultText: PropTypes.string
 };
 

@@ -13,9 +13,13 @@ export class GitRepos extends React.Component {
     return (
       <section className="git-repos">
         <SearchTerm
-          handleSubmit={this.handleSubmit}
+          // handleSubmit={this.handleSubmit}
           defaultText="verticalDesign"
-        />
+        >
+          {username => {
+            this.props.fetchFromGitHub(username);
+          }}
+        </SearchTerm>
         <ul className="repo-list">{renderList(this.props.repoItems)}</ul>
       </section>
     );

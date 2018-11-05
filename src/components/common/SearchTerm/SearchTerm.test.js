@@ -24,8 +24,8 @@ describe("Given <SearchTerm>", () => {
 
   describe("When handleSubmit is called ", () => {
     let handleSubmitSpy = sinon.spy();
-    it("should call handleSubmit", () => {
-      component = renderComponent({ handleSubmit: handleSubmitSpy });
+    it("should call children prop", () => {
+      component = renderComponent({ children: handleSubmitSpy });
       component.find("button").simulate("click", { preventDefault: () => {} });
       sinon.assert.calledOnce(handleSubmitSpy);
     });
