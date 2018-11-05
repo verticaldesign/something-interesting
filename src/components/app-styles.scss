@@ -35,3 +35,14 @@ button {
   border: 1px solid darken($primaryColor, 10%);
   color: darken(mix(complement($primaryColor), $primaryColor), 40%);
 }
+.emoji-clock {
+  font-size: 5em;
+  text-align: center;
+}
+.emoji-buttons {
+  text-align: center;
+  margin-top: 2em;
+  button {
+    margin-right: 1em;
+  }
+}

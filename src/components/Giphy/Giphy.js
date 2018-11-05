@@ -46,11 +46,14 @@ export class Giphy extends React.Component {
           }
         > */}
         <ul className="giphy-list">{renderList(this.props.giphyItems)}</ul>
-        <div className="load-more">
-          <button onClick={() => this.handleSubmit(this.state.searchTerm)}>
-            Load More
-          </button>
+        <div className={this.props.giphyItems.length > 0 ? "" : "hide"}>
+          <div className="load-more">
+            <button onClick={() => this.handleSubmit(this.state.searchTerm)}>
+              Load More
+            </button>
+          </div>
         </div>
+
         {/* </InfiniteScroll> */}
       </section>
     );
